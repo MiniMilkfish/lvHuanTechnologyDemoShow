@@ -1,4 +1,4 @@
-var http = require("http");
+ï»¿var http = require("http");
 var fs = require("fs");
 var url = require("url");
 var path = require("path");
@@ -13,7 +13,7 @@ var server = http.createServer(function(req,res){
     fs.readFile(fileURL,function(err,data){
         if(err){
             res.writeHead(404,{"Content-Type":"text/html;charset=UTF8"})
-            res.end("404,ÇëÇóÎÄ¼ş²»´æÔÚ£º" + fileURL);
+            res.end("404,è¯·æ±‚æ–‡ä»¶ä¸å­˜åœ¨ï¼š" + fileURL);
         }
         getMime(extname,function(mime){
             res.writeHead(200,{"Content-Type":mime})
@@ -23,11 +23,12 @@ var server = http.createServer(function(req,res){
 });
 
 server.listen(8888);
+console.log("å·²ç»ç›‘å¬ç«¯å£ 8888ï¼Œ è¯·ç§»æ­¥æµè§ˆå™¨è¾“å…¥ http://127.0.0.1:8888 é¢„è§ˆ Orz");
  
 function getMime(extname,callback){
     fs.readFile("./mime.json",function(err,data){
         if(err){
-            throw Error("ÕÒ²»µ½mime.json£º" + extname);
+            throw Error("æ‰¾ä¸åˆ°mime.jsonï¼š" + extname);
             return;
         }
         var mimeJSON = JSON.parse(data);
